@@ -1,1 +1,2 @@
-import "./erc721'";
+import "./erc20";
+import "./erc721";
