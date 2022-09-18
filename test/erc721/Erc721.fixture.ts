@@ -7,11 +7,11 @@ export async function deployErc721Fixture(): Promise<{ erc721: Web3HelpersErc721
   const signers: SignerWithAddress[] = await ethers.getSigners();
   const admin: SignerWithAddress = signers[0];
 
-  const greeterFactory: Web3HelpersErc721Token__factory = <Web3HelpersErc721Token__factory>(
-    await ethers.getContractFactory("Greeter")
+  const erc721Factory: Web3HelpersErc721Token__factory = <Web3HelpersErc721Token__factory>(
+    await ethers.getContractFactory("Web3HelpersErc721Token")
   );
   const erc721: Web3HelpersErc721Token = <Web3HelpersErc721Token>(
-    await greeterFactory.connect(admin).deploy([{ holder: admin.address, amount: 100 }], "ETST", "test")
+    await erc721Factory.connect(admin).deploy([{ holder: admin.address, amount: 100 }], "test", "TET")
   );
   await erc721.deployed();
 
